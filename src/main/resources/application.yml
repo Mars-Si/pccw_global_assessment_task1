@@ -1,0 +1,58 @@
+spring:
+  resources:
+    add-mappings: true
+
+management:
+  server:
+    port: 8090
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+
+logging:
+  level: 
+    org:
+     hibernate: DEBUG  
+           
+---
+    
+spring:
+  profiles: test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop    
+  datasource:
+    initialization-mode: always
+
+
+server:
+  port: 8080
+
+---
+spring:
+  profiles: prod
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:    
+      ddl-auto: update
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/pccwglobaltest?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: marsroot
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8081
+
+---
+spring:
+  profiles:
+    active: prod
