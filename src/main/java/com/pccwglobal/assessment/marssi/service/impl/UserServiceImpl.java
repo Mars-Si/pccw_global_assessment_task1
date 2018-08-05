@@ -15,7 +15,6 @@ import org.springframework.util.StringUtils;
 import com.pccwglobal.assessment.marssi.pojo.CreateUserRequest;
 import com.pccwglobal.assessment.marssi.pojo.UpdateUserRequest;
 import com.pccwglobal.assessment.marssi.pojo.User;
-import com.pccwglobal.assessment.marssi.repo.UserJpaRepository;
 import com.pccwglobal.assessment.marssi.repo.UserPagingAndSortingRepository;
 import com.pccwglobal.assessment.marssi.service.UserService;
 

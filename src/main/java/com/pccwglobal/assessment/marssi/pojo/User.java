@@ -2,13 +2,9 @@ package com.pccwglobal.assessment.marssi.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class User {
@@ -19,6 +15,7 @@ public class User {
 	private String email;
 
 	@Id
+	@Column(nullable = false, unique = true)
 	private String id;
 
 	@Column(nullable = false)

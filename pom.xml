@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>mars-si</name>
-	<description>Demo project for Spring Boot</description>
+	<description>PCCW Global Test for Java Developers</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -75,6 +75,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>	
+					<includes>
+						<include>**/*Test.java</include>	
+					</includes>
+					<excludes>
+						<!-- -->
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

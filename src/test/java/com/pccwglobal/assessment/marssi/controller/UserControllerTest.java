@@ -2,6 +2,7 @@ package com.pccwglobal.assessment.marssi.controller;
 
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -11,7 +12,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +69,7 @@ public class UserControllerTest {
 		mvc.perform(request) .andExpect(status().isOk())
 		 .andExpect(jsonPath("$.email").value(userRequest.getEmail()))
 		 .andExpect(jsonPath("$.name").value(userRequest.getName()))
+		 .andExpect(jsonPath("$.id", not("")))
 		 .andExpect(jsonPath("$.password").value(userRequest.getPassword()))
 		 .andExpect(jsonPath("$.username").value(userRequest.getUsername()));
 	}
